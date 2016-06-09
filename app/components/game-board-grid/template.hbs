@@ -1,7 +1,7 @@
 {{#each cellRows as |row|}}
     <tr class="board-row">
       {{#each row.cells as |cell|}}
-        {{game-board-cell cell=cell}}
+        {{game-board-cell fireShot='fireShot' cell=cell}}
       {{/each}}
     </tr>
 {{/each}}
