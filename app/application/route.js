@@ -23,6 +23,7 @@ export default Ember.Route.extend({
       let row, column, cell;
       column = i % 10;
       row = parseInt((i + 10) / 10);
+      row = parseInt((i + 9) / 10);
       cell = this.store.createRecord('cell', { row: row, column: column });
       cells.push(cell);
     }
