@@ -27,9 +27,30 @@ export default Ember.Route.extend({
     return cells;
   },
 
-  setUpShips() {
+  //Carrier: 5
+  //Battleship: 4
+  //Submarine: 3
+  //Destroyer: 3
+  //Patrol Boat: 2
+  setUpShips(cells) {
+    let shipLength = Ember.A([5,4,3,3,2]);
+    shipLength.forEach(function(value, index){
+      let cellSet = this.getUnoccupiedCellSet(cells, length);
+    })
+  },
 
+  getUnoccupiedCellSet(cells, length) {
+
+    let startRow = this.getRandomInt();
+    let startColumn = this.getRandomInt();
+    
+
+  },
+
+  getRandomInt() {
+    return Math.floor(Math.random() * (10 - 1 + 1) + 1)
   }
+
 
 
 });
