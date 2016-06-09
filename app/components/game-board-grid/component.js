@@ -10,8 +10,11 @@ export default Ember.Component.extend({
     let rows = Ember.A();
     for(let i = 1; i <= 10; i++) {
       let cells = this.get('cells').filterBy('row', i);
-      rows.push(Ember.Object.create('cells', cells));
+      let row = Ember.Object.create();
+      row.set('cells', cells);
+      rows.push(row);
     }
+    console.log("row", rows);
     return rows;
   }),
 

@@ -1,9 +1,7 @@
-{{#each rows as |row|}}
+{{#each cellRows as |row|}}
     <tr class="board-row">
       {{#each row.cells as |cell|}}
-        {{#game-board-cell}}
-          <div class="cell">[]</div>
-        {{/game-board-cell}}
+        {{game-board-cell cell=cell}}
       {{/each}}
     </tr>
 {{/each}}
