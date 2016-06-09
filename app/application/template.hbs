@@ -1,3 +1,7 @@
 <h2 id="title">Welcome to Ember Battleboats</h2>
 
-{{outlet}}
+<h2 class="player-one">Player One</h2>
+{{game-board-grid gameBoard=model.playerOneBoard}}
+
+<h2 class="player-two">Player Two</h2>
+{{game-board-grid gameBoard=model.playerTwoBoard}}
