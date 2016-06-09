@@ -59,31 +59,33 @@ export default Ember.Route.extend({
   placeShip(shipType, shipLength, boardProperty) {
     const rowCoord = this.getRandomInt(1,10);
     const columnCoord = this.getRandomInt(1,10);
-    const orientationVertical = this.getRandomInt(0,2);
+    const twoSidedDie = this.getRandomInt(1,2);
+
+    const orientationVertical = (twoSidedDie === 1) ? true : false;
 
     let candidateCoordinateSet = Ember.A();
     let gameboardCells = this.get(boardProperty);
-    debugger;
 
     if (orientationVertical) {
       let incrementNextCoord = (rowCoord < 5) ? true : false
       let columnCells = gameboardCells.filterBy('column', columnCoord);
-      for(let i = 1; i < shipLength; i++) {
+      for(let i = 1; i <= shipLength; i++) {
         let nextCoord = this.nextCoordinate(incrementNextCoord, rowCoord, i);
         const candidateCell = columnCells.filterBy('row', nextCoord).objectAt(0);
         console.log("Vertical");
         candidateCoordinateSet.push(candidateCell);
       }
-      } else {
+    } else {
         let incrementNextCoord = (columnCoord < 5) ? true : false
         let rowCells = gameboardCells.filterBy('row', rowCoord);
         for(let i = 1; i <= shipLength; i++) {
           let nextCoord = this.nextCoordinate(incrementNextCoord, columnCoord, i);
+          console.log("Horizontal");
           const candidateCell = rowCells.filterBy('column', nextCoord).objectAt(0);
           candidateCoordinateSet.push(candidateCell);
         }
-      }
-
+    }
+      
       if (candidateCoordinateSet.filterBy('hasShip', true).length > 0) {
         //invalid cell set, roll the dice again
         this.placeShip(shipType, shipLength, boardProperty);
