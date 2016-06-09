@@ -8,6 +8,8 @@ export default Ember.Route.extend({
 
     let playerOneBoard = this.store.createRecord('player-board', playerOneBoardCells);
     let playerTwoBoard = this.store.createRecord('player-board', playerTwoBoardCells);
+    let playerOneBoard = this.store.createRecord('player-board', { cells: playerOneBoardCells });
+    let playerTwoBoard = this.store.createRecord('player-board', { cells: playerTwoBoardCells });
     return this.store.createRecord('game', {
       currentTurn: 1,
       playerOneBoard: playerOneBoard,
