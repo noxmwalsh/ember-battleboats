@@ -4,5 +4,7 @@ import { belongsTo, hasMany } from 'ember-data/relationships';
 
 export default Model.extend({
   row: attr('integer'),
-  column: attr('integer')
+  column: attr('integer'),
+  hasShip: false,
+  beenFiredOn: false
 });
