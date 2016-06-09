@@ -1,1 +1,9 @@
-{{yield}}
+{{#each rows as |row|}}
+    <tr class="board-row">
+      {{#each row.cells as |cell|}}
+        {{#game-board-cell}}
+          <div class="cell">[]</div>
+        {{/game-board-cell}}
+      {{/each}}
+    </tr>
+{{/each}}
