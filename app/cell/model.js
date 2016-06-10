@@ -8,6 +8,6 @@ export default Model.extend({
   column: attr('number'),
   hasShip: attr('boolean'),
   shipType: attr('boolean'),
-  beenFiredOn: attr('boolean'),
+  beenFiredOn: attr('boolean', {default: 'false'}),
   playerBoard: belongsTo('player-board')
 });
