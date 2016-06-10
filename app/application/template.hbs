@@ -1,7 +1,15 @@
-<h2 id="title">Welcome to Ember Battleboats</h2>
+<div class="container">
+  <div class="col-xs-12 center-block">
+    <h2 id="title">Welcome to Ember Battleboats</h2>
 
-<h2 class="player-one">Player One</h2>
-{{game-board-grid gameBoard=model.playerOneBoard fireShot='fireShot'}}
+    {{#bs-button icon="glyphicon glyphicon-download"}}
+    Blah
+    {{/bs-button}}
 
-<h2 class="player-two">Player Two</h2>
-{{game-board-grid gameBoard=model.playerTwoBoard fireShot='fireShot'}}
+    <h2 class="player-one">Player One</h2>
+    {{game-board-grid gameBoard=model.playerOneBoard fireShot='fireShot'}}
+
+    <h2 class="player-two">Player Two</h2>
+    {{game-board-grid gameBoard=model.playerTwoBoard fireShot='fireShot'}}
+  </div>
+</div>

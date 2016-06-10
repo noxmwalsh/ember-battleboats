@@ -5,3 +5,21 @@
       {{/each}}
     </tr>
 {{/each}}
+
+<h3>Remaining Ships</h3>
+
+{{#unless aircraftCarrierCellsRemaining}}
+Aircraft Carrier
+{{/unless}}
+{{#unless battleshipCellsRemaining}}
+Battleship
+{{/unless}}
+{{#unless submarineCellsRemaining}}
+Submarine
+{{/unless}}
+{{#unless destroyerCellsRemaining}}
+Destroyer
+{{/unless}}
+{{#unless patrolBoatCellsRemaining}}
+Patrol Boat
+{{/unless}}

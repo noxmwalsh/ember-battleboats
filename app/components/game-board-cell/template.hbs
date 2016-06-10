@@ -1,10 +1,10 @@
 {{#if hasUnhitShipPart}}
-<span {{action 'fireShot'}}>[o]</span>
+<span class="cell ship-unhit" {{action 'fireShot'}}>[o]</span>
 {{else if hasShipPartHit}}
-<span {{action 'fireShot'}}>[*]</span>
+<span class="cell ship-hit" {{action 'fireShot'}}>[*]</span>
 {{else if cell.beenFiredOn}}
-<span {{action 'fireShot'}}>[x]</span>
+<span class="cell missed-shot" {{action 'fireShot'}}>[x]</span>
 {{else}}
-<span {{action 'fireShot'}}>[ ]</span>
+<span class="cell" {{action 'fireShot'}}>[ ]</span>
 {{/if}}
 

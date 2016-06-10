@@ -1,0 +1,18 @@
+& {
+  .cell {
+    cursor: pointer;
+    width: 20px;
+  }
+
+  .ship-unhit {
+    color: burlywood;
+  }
+
+  .ship-hit {
+    color: darkred;
+  }
+
+  .missed-shot {
+    color: darkblue;
+  }
+}
