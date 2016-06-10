@@ -6,20 +6,24 @@
     </tr>
 {{/each}}
 
+{{#if shipCellsRemaining}}
 <h3>Remaining Ships</h3>
 
-{{#if aircraftCarrierCellsRemaining}}
-Aircraft Carrier
-{{/if}}
-{{#if battleshipCellsRemaining}}
-Battleship
-{{/if}}
-{{#if submarineCellsRemaining}}
-Submarine
-{{/if}}
-{{#if destroyerCellsRemaining}}
-Destroyer
-{{/if}}
-{{#if patrolBoatCellsRemaining}}
-Patrol Boat
+  {{#if aircraftCarrierCellsRemaining}}
+    Aircraft Carrier
+  {{/if}}
+  {{#if battleshipCellsRemaining}}
+    Battleship
+  {{/if}}
+  {{#if submarineCellsRemaining}}
+    Submarine
+  {{/if}}
+  {{#if destroyerCellsRemaining}}
+    Destroyer
+  {{/if}}
+  {{#if patrolBoatCellsRemaining}}
+    Patrol Boat
+  {{/if}}
+{{else}}
+<p class="victory">Congrats Admiral!  Those pesky enemy ships will be sleeping with the fishes tonight!</p>
 {{/if}}
