@@ -1,5 +1,12 @@
 # Ember-battleboats
 
+Welcome to Ember Battleboats!  It's an amazing game where you point your cursor at your opponent's
+board and click their ships to death.  You know, like they do in the Navy! Wow!
+
+The rest of the info below is the normal spiel you'll see for an Ember-CLI application.  Enjoy!
+
+------------------------------------------
+
 This README outlines the details of collaborating on this Ember application.
 A short introduction of this app could easily go here.
 
