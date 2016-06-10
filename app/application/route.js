@@ -27,12 +27,14 @@ export default Ember.Route.extend({
 
   createCells() {
     let cells = Ember.A();
-    for(let i = 1; i <= 100; i++) {
-      let row, column, cell;
-      column = i % 10;
-      row = parseInt((i + 9) / 10);
-      cell = this.store.createRecord('cell', { setId: i, row: row, column: column, hasShip: false, shipType: '' });
-      cells.push(cell);
+    let row, column, cell;
+    for(let i = 1; i <= 10; i++) {
+      for(let j = 1; j <= 10; j++) {
+        column = i;
+        row = j;
+        cell = this.store.createRecord('cell', { row: row, column: column, hasShip: false, shipType: '' });
+        cells.push(cell);
+      }
     }
     return cells;
   },
@@ -71,8 +73,10 @@ export default Ember.Route.extend({
       let columnCells = gameboardCells.filterBy('column', columnCoord);
       for(let i = 1; i <= shipLength; i++) {
         let nextCoord = this.nextCoordinate(incrementNextCoord, rowCoord, i);
+        console.log("next", nextCoord);
         const candidateCell = columnCells.filterBy('row', nextCoord).objectAt(0);
         console.log("Vertical", nextCoord);
+        console.log("filteredCell", candidateCell);
         candidateCoordinateSet.push(candidateCell);
       }
     } else {
@@ -105,8 +109,6 @@ export default Ember.Route.extend({
     }
   },
 
-
-
   nextCoordinate(incrementNextCoord, originCoord, steps) {
     if (incrementNextCoord) {
       return originCoord + steps;
@@ -117,6 +119,22 @@ export default Ember.Route.extend({
 
   getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - 1 + min) + min)
+  },
+
+  actions: {
+    fireShot(row, column, gameBoardId) {
+      let board = this.store.peekRecord('player-board', gameBoardId);
+      let cells = board.get('cells');
+      let targetCell = cells.filterBy('row', row).filterBy('column', column).objectAt(0);
+      if (targetCell.get('beenFiredOn')) {
+        //Good shooting, captain, you'll show those fish what for the second time
+        return false;
+      } else {
+        //Boom!
+        targetCell.set('beenFiredOn', true)
+      }
+      targetCell.save();
+    }
   }
 
 });
