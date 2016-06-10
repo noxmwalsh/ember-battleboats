@@ -6,6 +6,7 @@
     "ember-cli-test-loader": "0.2.2",
     "ember-qunit-notifications": "0.1.0",
     "blob-polyfill": "^1.0.20150320",
-    "bootstrap": "~3.3.5"
+    "bootstrap": "~3.3.5",
+    "bootstrap-sass-official": "3.3.5"
   }
 }

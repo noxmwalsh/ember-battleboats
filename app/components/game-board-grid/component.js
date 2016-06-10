@@ -13,11 +13,11 @@ export default Ember.Component.extend({
   destroyerCells: Ember.computed.filterBy('cells', 'shipType', 'Destroyer'),
   patrolBoatCells: Ember.computed.filterBy('cells', 'shipType', 'Patrol Boat'),
 
-  aircraftCarrierCellsRemaining: Ember.computed.filterBy('aircraftCarrierCells', 'hasBeenHit', true),
-  battleshipCellsRemaining: Ember.computed.filterBy('battleshipCells', 'hasBeenHit', true),
-  submarineCellsRemaining: Ember.computed.filterBy('submarineCells', 'hasBeenHit', true),
-  destroyerCellsRemaining: Ember.computed.filterBy('destroyerCells', 'hasBeenHit', true),
-  patrolBoatCellsRemaining: Ember.computed.filterBy('patrolBoatCells', 'hasBeenHit', true),
+  aircraftCarrierCellsRemaining: Ember.computed.filterBy('aircraftCarrierCells', 'beenFiredOn', false),
+  battleshipCellsRemaining: Ember.computed.filterBy('battleshipCells', 'beenFiredOn', false),
+  submarineCellsRemaining: Ember.computed.filterBy('submarineCells', 'beenFiredOn', false),
+  destroyerCellsRemaining: Ember.computed.filterBy('destroyerCells', 'beenFiredOn', false),
+  patrolBoatCellsRemaining: Ember.computed.filterBy('patrolBoatCells', 'beenFiredOn', false),
 
 
   cellRows: Ember.computed('cells.[]', function() {
