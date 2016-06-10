@@ -1,6 +1,10 @@
-{{#if cell.hasShip}}
+{{#if hasUnhitShipPart}}
 <span {{action 'fireShot'}}>[o]</span>
+{{else if hasShipPartHit}}
+<span {{action 'fireShot'}}>[*]</span>
+{{else if cell.beenFiredOn}}
+<span {{action 'fireShot'}}>[x]</span>
 {{else}}
-<span {{action 'fireShot'}}>[]</span>
+<span {{action 'fireShot'}}>[ ]</span>
 {{/if}}
 

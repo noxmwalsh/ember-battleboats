@@ -4,6 +4,7 @@ export default Ember.Component.extend({
   //10x10 from 1-10 to A-J
 
   gameBoard: null,
+  boardId: Ember.computed.alias('gameBoard.id'),
   cells: Ember.computed.alias('gameBoard.cells'),
 
   cellRows: Ember.computed('cells.[]', function() {
@@ -14,14 +15,13 @@ export default Ember.Component.extend({
       row.set('cells', cells);
       rows.push(row);
     }
-    console.log("row", rows);
     return rows;
   }),
 
 
-  action: {
-    fireRound: function() {
-
+  actions: {
+    fireShot: function(row, column) {
+      this.sendAction('fireShot', row, column, this.get('boardId'));
     }
   }
 });
